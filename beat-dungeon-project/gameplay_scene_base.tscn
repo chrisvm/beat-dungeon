@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://dmao54jmmmenv"]
+[gd_scene load_steps=2 format=3 uid="uid://dmao54jmmmenv"]
+
+[ext_resource type="PackedScene" uid="uid://dwhvgnw0m8ovo" path="res://tiled_maps/test_map_native.tscn" id="1_ygk30"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TestMapNative" parent="." instance=ExtResource("1_ygk30")]
