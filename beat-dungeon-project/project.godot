@@ -27,6 +27,10 @@ window/stretch/scale_mode="integer"
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_1="Water"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
