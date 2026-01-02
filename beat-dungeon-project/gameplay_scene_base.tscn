@@ -9,6 +9,7 @@
 [node name="Cursor" parent="." instance=ExtResource("3_j4cn3")]
 
 [node name="TestMapNative" parent="." instance=ExtResource("1_ygk30")]
+position = Vector2(0, 1)
 
 [node name="UnitBase" parent="." instance=ExtResource("2_4dopv")]
 position = Vector2(839.00006, 423)
