@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4jgeovdgh23"]
+
+[ext_resource type="Texture2D" uid="uid://bg0mypd04fpf6" path="res://tiled_maps/tilemap.png" id="1_74cdg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju6fh"]
+atlas = ExtResource("1_74cdg")
+region = Rect2(274, 86, 13, 13)
+
+[node name="UnitBase" type="Node2D"]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6.57)
+texture = SubResource("AtlasTexture_ju6fh")
