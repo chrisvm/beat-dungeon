@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3cxet8n3cxv1"]
+
+[ext_resource type="Script" uid="uid://b0yumeh7xx1ye" path="res://core/cursor/cursor.gd" id="1_fsq4c"]
+[ext_resource type="TileSet" uid="uid://big52my0x5pi6" path="res://core/cursor/cursor_tileset.tres" id="2_4d21q"]
+[ext_resource type="Texture2D" uid="uid://doldqas1l2kss" path="res://assets/ui_tilemap.png" id="2_5l68f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4vdg"]
+atlas = ExtResource("2_5l68f")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Cursor" type="CanvasLayer"]
+script = ExtResource("1_fsq4c")
+tile_set = ExtResource("2_4d21q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_e4vdg")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
