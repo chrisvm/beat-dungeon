@@ -16,6 +16,5 @@ tile_set = ExtResource("2_4d21q")
 position = Vector2(16, 16)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_e4vdg")
-offset = Vector2(5, 6)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)

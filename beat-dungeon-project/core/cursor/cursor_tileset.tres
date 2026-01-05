@@ -6,6 +6,7 @@
 resource_name = "cursor"
 texture = ExtResource("1_epi23")
 separation = Vector2i(1, 1)
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

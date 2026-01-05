@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var sprite := $Sprite2D
 @export var tile_set: TileSet
+@export var pointer_offset: Vector2
 var tile_size: int
 var atlas_source: TileSetAtlasSource
 
@@ -21,12 +22,11 @@ func _ready() -> void:
 	set_cursor_tile(Vector2i(7, 1))
 
 func _process(delta: float) -> void:
+	# also need to adjust the offset so that mouse sprites point in the 
+	# same place as the system cursor
 	sprite.global_position = get_viewport().get_mouse_position()
 	
 func set_cursor_tile(coords: Vector2i):
-	var translated_coords := Vector2i()
-	if coords.x != 0:
-		translated_coords.x = (coords.x * tile_size) + 1
-	if coords.y != 0:
-		translated_coords.y = (coords.y * tile_size) + 1
-	sprite.region_rect = Rect2(translated_coords, Vector2(tile_size, tile_size))
+	# get tilesets region on the image
+	var region := atlas_source.get_tile_texture_region(Vector2i(7, 1))
+	sprite.region_rect = Rect2(region.position, region.size)
