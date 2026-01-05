@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/YATI/plugin.cfg")
 [layer_names]
 
 2d_physics/layer_1="Water"
+2d_physics/layer_2="Selection"
 
 [rendering]
 

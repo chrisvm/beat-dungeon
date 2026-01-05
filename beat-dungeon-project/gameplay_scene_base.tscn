@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmao54jmmmenv"]
+[gd_scene load_steps=5 format=3 uid="uid://dmao54jmmmenv"]
 
 [ext_resource type="PackedScene" uid="uid://dwhvgnw0m8ovo" path="res://maps/test_map_native.tscn" id="1_ygk30"]
-[ext_resource type="PackedScene" uid="uid://dq4jgeovdgh23" path="res://unit_base.tscn" id="2_4dopv"]
+[ext_resource type="PackedScene" uid="uid://dq4jgeovdgh23" path="res://core/units/base/unit_base.tscn" id="2_4dopv"]
+[ext_resource type="Script" uid="uid://d30qefeqr2js3" path="res://core/systems/selection_manager.gd" id="2_pb3an"]
 [ext_resource type="PackedScene" uid="uid://b3cxet8n3cxv1" path="res://core/cursor/cursor.tscn" id="3_j4cn3"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Cursor" parent="." instance=ExtResource("3_j4cn3")]
-pointer_offset = Vector2(0, 16)
-
 [node name="TestMapNative" parent="." instance=ExtResource("1_ygk30")]
 position = Vector2(0, 1)
 
-[node name="UnitBase" parent="." instance=ExtResource("2_4dopv")]
+[node name="SelectionManager" type="Node2D" parent="."]
+script = ExtResource("2_pb3an")
+
+[node name="Units" type="Node" parent="."]
+
+[node name="UnitBase" parent="Units" instance=ExtResource("2_4dopv")]
 position = Vector2(839.00006, 423)
+
+[node name="Cursor" parent="." instance=ExtResource("3_j4cn3")]
+pointer_offset = Vector2(0, 16)

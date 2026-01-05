@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq4jgeovdgh23"]
+
+[ext_resource type="Texture2D" uid="uid://bg0mypd04fpf6" path="res://maps/tilemap.png" id="1_74cdg"]
+[ext_resource type="Script" uid="uid://cnuridkudiqip" path="res://core/units/base/unit_base.gd" id="1_ju6fh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ju6fh"]
+atlas = ExtResource("1_74cdg")
+region = Rect2(274, 86, 13, 13)
+
+[sub_resource type="Animation" id="Animation_ju6fh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_74cdg"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.1, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svo2k"]
+_data = {
+&"RESET": SubResource("Animation_ju6fh"),
+&"idle": SubResource("Animation_74cdg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfacp"]
+size = Vector2(17, 17.666668)
+
+[node name="UnitBase" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ju6fh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3.3333335, -13, 3, -13, 6.3333335, -6, 5.3333335, 0, -5.3333335, 0, -6.3333335, -6.3333335)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ju6fh")
+centered = false
+offset = Vector2(-6, -13)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_svo2k")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_hfacp")
