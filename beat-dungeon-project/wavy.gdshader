@@ -12,7 +12,7 @@ uniform float multiplierAmount : hint_range(0.0, 0.1) = 0.01;
 void fragment() {
 	// Called for every pixel the material is visible on.
 	
-	//Get the the screen, then add the noise to it based on the red channel. 
+	//Get the screen, then add the noise to it based on the red channel. 
 	//Scroll that noise multiplied by the time, multiply all of that by given amount
 	vec2 distortionUV = SCREEN_UV + texture(TEXTURE, UV + scrollAmount * TIME).r * multiplierAmount;
 	

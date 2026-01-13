@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d034wnvr3mj0u"]
+
+[ext_resource type="Shader" uid="uid://bndlepip1dinf" path="res://wind.gdshader" id="1_fiowr"]
+
+[resource]
+shader = ExtResource("1_fiowr")
+shader_parameter/windAmount = 1.5
+shader_parameter/amplitude = 15.3

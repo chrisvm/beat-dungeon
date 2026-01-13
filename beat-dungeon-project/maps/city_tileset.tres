@@ -1,17 +1,7 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://b87setu8hv36n"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://b87setu8hv36n"]
 
 [ext_resource type="Texture2D" uid="uid://bg0mypd04fpf6" path="res://maps/tilemap.png" id="1_o3fpk"]
-[ext_resource type="Shader" uid="uid://ddu0skiwoyys6" path="res://wavy.gdshader" id="1_rmqpw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmqpw"]
-shader = ExtResource("1_rmqpw")
-shader_parameter/scrollAmount = Vector2(0.05, 0.05)
-shader_parameter/multiplierAmount = 0.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7uh6u"]
-shader = ExtResource("1_rmqpw")
-shader_parameter/scrollAmount = Vector2(0.05, 0.05)
-shader_parameter/multiplierAmount = 0.01
+[ext_resource type="Material" uid="uid://d034wnvr3mj0u" path="res://wind_material.tres" id="2_7uh6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80kw5"]
 texture = ExtResource("1_o3fpk")
@@ -127,7 +117,7 @@ separation = Vector2i(1, 1)
 2:5/0 = 0
 3:5/0 = 0
 4:5/0 = 0
-4:5/0/material = SubResource("ShaderMaterial_rmqpw")
+4:5/0/material = ExtResource("2_7uh6u")
 5:5/0 = 0
 6:5/0 = 0
 7:5/0 = 0
@@ -147,7 +137,7 @@ separation = Vector2i(1, 1)
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
-4:6/0/material = SubResource("ShaderMaterial_7uh6u")
+4:6/0/material = ExtResource("2_7uh6u")
 5:6/0 = 0
 6:6/0 = 0
 7:6/0 = 0
