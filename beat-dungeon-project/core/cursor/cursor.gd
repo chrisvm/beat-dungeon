@@ -7,7 +7,6 @@ var tile_size: int
 var atlas_source: TileSetAtlasSource
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
@@ -28,5 +27,5 @@ func _process(delta: float) -> void:
 	
 func set_cursor_tile(coords: Vector2i):
 	# get tilesets region on the image
-	var region := atlas_source.get_tile_texture_region(Vector2i(7, 1))
+	var region := atlas_source.get_tile_texture_region(coords)
 	sprite.region_rect = Rect2(region.position, region.size)
