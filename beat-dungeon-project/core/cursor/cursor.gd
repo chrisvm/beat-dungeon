@@ -8,7 +8,7 @@ var atlas_source: TileSetAtlasSource
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 	# use tileset as source, we need to create a TileSetAtlasSource
 	var source := tile_set.get_source(0)
