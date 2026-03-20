@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameSettings" load_steps=2 format=3 uid="uid://c0vwf8irs4ome"]
+
+[ext_resource type="Script" uid="uid://ct3hll1w8mq0s" path="res://core/settings/game_settings.gd" id="1_settings"]
+
+[resource]
+script = ExtResource("1_settings")
+game_view_fraction = 0.7

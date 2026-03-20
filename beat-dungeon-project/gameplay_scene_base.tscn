@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmao54jmmmenv"]
+[gd_scene load_steps=8 format=3 uid="uid://dmao54jmmmenv"]
 
 [ext_resource type="PackedScene" uid="uid://dwhvgnw0m8ovo" path="res://maps/test_map_native.tscn" id="1_ygk30"]
 [ext_resource type="PackedScene" uid="uid://dq4jgeovdgh23" path="res://core/units/base/unit_base.tscn" id="2_4dopv"]
@@ -6,42 +6,52 @@
 [ext_resource type="PackedScene" uid="uid://b3cxet8n3cxv1" path="res://core/cursor/cursor.tscn" id="3_j4cn3"]
 [ext_resource type="PackedScene" path="res://core/ui/unit_stats_panel.tscn" id="4_stats"]
 [ext_resource type="Script" uid="uid://05egrx5y3qr0" path="res://core/camera/game_camera.gd" id="5_camera"]
+[ext_resource type="Script" uid="uid://dkyjcjmvqhsyw" path="res://gameplay_scene_base.gd" id="6_setup"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Root" type="Node"]
+script = ExtResource("6_setup")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(692, 359)
-zoom = Vector2(1.5, 1.5)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameView" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.7
+anchor_bottom = 1.0
+
+[node name="SubViewport" type="SubViewport" parent="Control/GameView"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Control/GameView/SubViewport"]
+position = Vector2(839, 423)
 script = ExtResource("5_camera")
 
-[node name="TestMapNative" parent="." instance=ExtResource("1_ygk30")]
-position = Vector2(66, 32)
-metadata/_edit_lock_ = true
+[node name="TestMapNative" parent="Control/GameView/SubViewport" instance=ExtResource("1_ygk30")]
+position = Vector2(0, 1)
 
-[node name="Units" type="Node" parent="."]
+[node name="Units" type="Node" parent="Control/GameView/SubViewport"]
 
-[node name="UnitBase" parent="Units" instance=ExtResource("2_4dopv")]
+[node name="UnitBase" parent="Control/GameView/SubViewport/Units" instance=ExtResource("2_4dopv")]
 position = Vector2(839.00006, 423)
 base_stats = ExtResource("3_dhfcm")
 
-[node name="Cursor" parent="." instance=ExtResource("3_j4cn3")]
+[node name="Cursor" parent="Control/GameView/SubViewport" instance=ExtResource("3_j4cn3")]
 pointer_offset = Vector2(0, 16)
 
-[node name="RightPanel" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="Background" type="Panel" parent="RightPanel"]
+[node name="RightPanel" type="Panel" parent="Control"]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.7
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 250.0
-grow_horizontal = 0
-grow_vertical = 0
 
-[node name="UnitStatsPanel" parent="RightPanel/Background" instance=ExtResource("4_stats")]
-layout_mode = 1
-anchors_preset = 15
-offset_left = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UnitStatsPanel" parent="Control/RightPanel" instance=ExtResource("4_stats")]
+anchors_preset = 0
