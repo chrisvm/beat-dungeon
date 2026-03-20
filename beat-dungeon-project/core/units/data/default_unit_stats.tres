@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://default_unit_stats"]
+
+[ext_resource type="Script" path="res://core/units/base/unit_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+max_health = 100
+attack = 10
+defense = 5
+speed = 100.0
+move_range = 3

@@ -23,6 +23,10 @@ window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[autoload]
+
+SelectionManager="*res://core/systems/selection_manager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YATI/plugin.cfg")

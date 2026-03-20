@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://unit_stats_panel"]
+
+[ext_resource type="Script" path="res://core/ui/unit_stats_panel.gd" id="1_panel"]
+
+[node name="UnitStatsPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_panel")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+offset_bottom = 110.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="UnitNameLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Unit Name"
+
+[node name="HealthLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "HP: 100 / 100"
